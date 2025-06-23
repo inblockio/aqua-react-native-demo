@@ -3,7 +3,6 @@ import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
-
 import { useColorScheme } from '@/hooks/useColorScheme';
 
 export default function RootLayout() {
@@ -16,17 +15,20 @@ export default function RootLayout() {
     // Async font loading only occurs in development.
     return null;
   }
+  
+
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme} children={undefined}>
+    
+    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme} >
        <>
         <Stack initialRouteName="FileUi">
           <Stack.Screen name="FileUi" options={{ headerShown: false }} />
-          <Stack.Screen name="home" options={{ headerShown: false }} />
           <Stack.Screen name="+not-found" />
         </Stack>
         <StatusBar style="auto" />
       </>
     </ThemeProvider>
+  
   );
 }
